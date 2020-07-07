@@ -9,11 +9,18 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background-color: ;
 }
 
 .col2 {
     background-color: blue;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.row-container{
+    height: 100%;
 }
 
 .maincontainer{
@@ -29,7 +36,7 @@
 <div class="maincontainer">
 
     <b-container class="maincontainer">
-        <b-row>
+        <b-row class="row-container">
             <b-col cols="7" class="col1">
             <h1>Inicia sesion</h1>
 
