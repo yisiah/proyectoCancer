@@ -52,9 +52,6 @@
                       </b-col>
                     </b-row>
                 </b-form>
-
-
-
             </b-col>
             <b-col cols="5" class="col2">
                 <img src="../assets/doctora.svg" alt="doc" class="imgdoc">
