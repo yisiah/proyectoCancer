@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import singIn from '../components/singIn'
+import singUp from '../components/singUp'
 Vue.use(Router)
 
 export default new Router({
@@ -9,6 +10,11 @@ export default new Router({
       path: '/',
       name: 'SingIn',
       component: singIn
+    },
+    {
+      path: '/2',
+      name: 'SingUp',
+      component: singUp
     }
   ]
 })
