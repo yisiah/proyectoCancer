@@ -12,7 +12,7 @@
 }
 
 .col2 {
-    background-color: blue;
+    background-color: #00A6FF;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -28,6 +28,9 @@
   min-height: 100%;
 
 }
+.formulario{
+  width: 50%;
+}
 /*box shadow*/
 </style>
 
@@ -38,9 +41,10 @@
     <b-container class="maincontainer">
         <b-row class="row-container">
             <b-col cols="7" class="col1">
-            <h1>{{titulo}}</h1>
 
-                <b-form>
+
+                <b-form class="formulario">
+                  <h1>{{titulo}}</h1>
                     <b-form-group id="input-group-1" label="Correo electronico:" label-for="input-1">
                         <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Ingresa tu e-mail"></b-form-input>
                     </b-form-group>
@@ -53,9 +57,7 @@
                         <b-button type="submit" variant="primary">Ingresar</b-button>
                       </b-col>
                       <b-col>
-                        <b-button type="reset" variant="danger">Registro</b-button>
-                          <!--router-link :to="{ name: 'SingUp'}"></router-link>
-                          Registrarse</b-button-->
+                          <router-link :to="{ name: 'SingUp'}" class="btn btn-danger">Registro</router-link>
                       </b-col>
                     </b-row>
                 </b-form>
@@ -74,7 +76,7 @@
 export default {
     data() {
         return {
-            titulo: "Incia sesion",
+            titulo: "Iniciar sesión",
             form: {
               email: '',
               password: ''

@@ -8,17 +8,17 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/singin',
       name: 'SingIn',
       component: singIn
     },
     {
-      path: '/2',
+      path: '/singup',
       name: 'SingUp',
       component: singUp
     },
     {
-      path: '/3',
+      path: '/pacient',
       name: 'Pacient',
       component: pacient
     }
