@@ -8,6 +8,11 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: '/',
+      component: singIn
+    },
+    {
       path: '/singin',
       name: 'SingIn',
       component: singIn
