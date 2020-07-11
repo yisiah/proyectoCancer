@@ -1,34 +1,32 @@
 <style lang="css" scoped>
-
 .imgdoc {
-    width: 100%;
+  width: 100%;
 }
 
 .col1 {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .col2 {
-    background-color: #00A6FF;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  background-color: #00a6ff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.row-container{
-    height: 100%;
+.row-container {
+  height: 100%;
 }
 
-.maincontainer{
+.maincontainer {
   height: 100%;
   min-height: 100%;
-
 }
-.formulario{
+.formulario {
   width: 50%;
 }
 /*box shadow*/
@@ -41,9 +39,7 @@
     <b-container class="maincontainer">
         <b-row class="row-container">
             <b-col cols="7" class="col1">
-
-
-                <b-form class="formulario">
+                <b-form @submit="login" class="formulario">
                   <h1>{{titulo}}</h1>
                     <b-form-group id="input-group-1" label="Correo electronico:" label-for="input-1">
                         <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Ingresa tu e-mail"></b-form-input>
@@ -81,6 +77,24 @@ export default {
               email: '',
               password: ''
             }
+        }
+    },
+    methods:{
+        login(event){
+            event.preventDefault()
+            fetch('https://test-ibm-vr.herokuapp.com/login',{
+                method: 'POST',
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(this.form)
+            })
+            .then((response)=>{
+                return response.json()
+            })
+            .then((myJson)=>{
+                localStorage.setItem("sessionToken", myJson.token);
+            });
         }
     }
 }
