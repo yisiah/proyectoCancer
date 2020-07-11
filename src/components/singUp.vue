@@ -44,23 +44,23 @@
 
 <div class="maincontainer">
     <div class="box">
-        <b-form class="formulario">
+        <b-form @submit="register" class="formulario">
             <h2 class="titulo">{{titulo}}</h2>
             <b-form-group id="input-group-1" label="Nombre:" label-for="input-1">
-                <b-form-input id="input-1" v-model="form.Name" type="text" required placeholder="Nombre"></b-form-input>
+                <b-form-input id="input-1" v-model="form.name" type="text" required placeholder="Nombre"></b-form-input>
             </b-form-group>
 
             <b-form-group id="input-group-1" label="Apellido paterno:" label-for="input-1">
-                <b-form-input id="input-1" v-model="form.ApellidoP" type="text"required placeholder="Apellido paterno"></b-form-input>
+                <b-form-input id="input-1" v-model="form.paternalName" type="text"required placeholder="Apellido paterno"></b-form-input>
             </b-form-group>
 
             <b-form-group id="input-group-1" label="Apellido materno:" label-for="input-1">
-                <b-form-input id="input-1" v-model="form.ApellidoM" type="text" required placeholder="Apellido materno"></b-form-input>
+                <b-form-input id="input-1" v-model="form.maternalName" type="text" required placeholder="Apellido materno"></b-form-input>
             </b-form-group>
 
             <!-- como es una cedula? -->
             <b-form-group id="input-group-1" label="Cedula:" label-for="input-1">
-                <b-form-input id="input-1" v-model="form.cedula" type="text" required placeholder="Cedula"></b-form-input>
+                <b-form-input id="input-1" v-model="form.professionalLicense" type="text" required placeholder="Cedula"></b-form-input>
             </b-form-group>
 
             <b-form-group id="input-group-1" label="Correo electronico:" label-for="input-1">
@@ -81,9 +81,6 @@
             </p>
 
         </b-form>
-
-
-
     </div>
 </div>
 
@@ -97,16 +94,44 @@ export default {
         return {
             titulo: "Registro",
             form: {
-                nombre: '',
-                apellidoPaterno: '',
-                apellidoMaterno: '',
-                cedula: '',
+                name: '',
+                paternalName: '',
+                maternalName: '',
+                professionalLicense: '',
                 email: '',
                 password: ''
             }
         }
 
+    },
+    methods: {
+      register(event){
+        event.preventDefault()
+        fetch('https://test-ibm-vr.herokuapp.com/register',{
+          method: 'POST',
+          headers: {
+              "Content-Type": "application/json" /*formato de lo que se envia o tipo de peticion*/
+          },
+          body: JSON.stringify(this.form)
+
+        })
+        .then((response) => { /*variabe recibe la informacion servidor en texto plano*/
+            console.log(response)/*tipo print*/
+            if (response.status == 200){
+              alert ("Registro exitoso")
+              router.replace('singin')
+
+            }else{
+              alert("Error en el registro")
+            }
+            return response.json() /*formata a json*/
+
+        })
+
+      }
+
     }
+
 }
 
 </script>
