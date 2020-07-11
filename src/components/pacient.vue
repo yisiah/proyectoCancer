@@ -48,9 +48,11 @@
 <template lang="html">
 
 <div class="">
-
+<p>
     <h2>{{titulo}}</h2>
+    <router-link :to="{ name: 'History'}" class="btn btn-danger">Historial</router-link>
 
+</p>
     <div class="maincontainer">
         <!--primer formulario-->
 
