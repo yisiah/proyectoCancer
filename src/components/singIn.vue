@@ -54,7 +54,7 @@
                     </b-form-group>
                     <b-row>
                       <b-col>
-                        <b-button type="submit" variant="primary">Ingresar</b-button>
+                        <router-link :to="{ name: 'Pacient'}" class="btn btn-primary">Ingresar</router-link>
                       </b-col>
                       <b-col>
                           <router-link :to="{ name: 'SingUp'}" class="btn btn-danger">Registro</router-link>
