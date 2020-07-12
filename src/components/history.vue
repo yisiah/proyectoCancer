@@ -3,37 +3,58 @@
 .maincontainer {
     border-radius: 25px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     padding: 20px;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
     width: 100%;
     background-color: white;
 }
 
+.container {
+    margin-top: 40px;
+}
+
+.cabezal {
+    background-color: #EFF2F7;
+}
+
+
+/*.table{
+  border: 1px, solid
+}*/
+
 </style>
 
 <template lang="html">
 
-<div class="">
+<div class="container">
     <div class="maincontainer">
-        <h2>{{titulo}}</h2>
-
+        <p>
+            <h2>{{titulo}}</h2>
+            <router-link :to="{ name: 'Pacient'}" class="btn btn-danger">Historial</router-link>
+        </p>
         <!--posible tabla 2-->
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1>{{titulo}}</h1> {{pacients}}
-                    <table>
-                        <tr>
-                            <th>#</th>
+                    <table class="table">
+                        <tr class="cabezal">
+                            <th>id</th>
                             <th>Nombre</th>
                             <th>Apellido paterno</th>
                             <th>Apellido materno</th>
+                            <th>Edad</th>
                             <th>Resultado VR</th>
                         </tr>
-                        <tr>
+                        <tr v-for="pacient in pacients">
+                            <td>{{pacient.idPacient}}</td>
+                            <td>{{pacient.name}}</td>
+                            <td>{{pacient.paternalName}}</td>
+                            <td>{{pacient.maternalName}}</td>
+                            <td>{{pacient.age}}</td>
+                            <td>{{}}</td>
                         </tr>
                     </table>
                 </div>
@@ -48,7 +69,7 @@
 
 export default {
     created() {
-          this.getPatient()
+            this.getPatient()
         },
         data() {
             return {
@@ -80,7 +101,7 @@ export default {
                     .then(obj => {
                         console.log(obj)
                         if (obj.status == 200) {
-                            this.pacients = obj.body
+                            this.pacients = obj.body.pacients
 
                         } else {
                             alert("No se pudo obtener la informacion")
