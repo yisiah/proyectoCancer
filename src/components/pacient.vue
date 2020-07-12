@@ -1,70 +1,68 @@
 <style lang="css" scoped>
-
 /*localstorage*/
 
 .box1 {
-    border-radius: 25px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    background-color: white;
+  border-radius: 25px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  background-color: white;
 }
 
 .box2 {
-    border-radius: 25px;
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
-    background-color: white;
-    margin-top: 30px;
-    margin-bottom: 30px;
+  border-radius: 25px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .box4 {
-    border-radius: 25px;
-    width: 100%;
-    padding: 20px;
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
-    background-color: white;
-    margin-top: 30px;
-    margin-bottom: 30px;
+  border-radius: 25px;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .maincontainer {
-    display: flex;
-    align-items: center;
-    /*vertical*/
-    justify-content: center;
-    /*horizontal*/
-    background-color: #f9f9f9;
-    padding: 100px 0px 100px 0px;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  /*vertical*/
+  justify-content: center;
+  /*horizontal*/
+  background-color: #f9f9f9;
+  padding: 100px 0px 100px 0px;
+  flex-direction: column;
 }
 
 .maincontainer h2 {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .categoria {
-    text-align: left;
+  text-align: left;
 }
 
 .img_preview {
-    width: 400px;
+  width: 400px;
 }
 
 .headerDivider {
-    border-left: 2px solid #38546d;
+  border-left: 2px solid #38546d;
 }
-
 </style>
 
 <template lang="html">
@@ -215,11 +213,13 @@
                         <div>
                             <input class="" type="file" ref="myFile" @change="previewFiles">
 
-                            <button class="btn btn-secondary">Analizar imagen</button>
+                            <input type="button" @click="sendImage" class="btn btn-secondary" value="Analizar imagen">
                         </div>
                     </div>
                     <div class="col-md-6 headerDivider">
                         <h3>Resultado del análisis</h3>
+
+                        <p>{{ibmResult}}</p>
                     </div>
                 </div>
             </div>
@@ -232,74 +232,99 @@
 </template>
 
 <script>
-
 export default {
-    data() {
-            return {
-                titulo: "Registrar informacion del paciente",
-                imgUrl: "https://th.bing.com/th/id/OIP.vHpJXWt8lBwvG9c2pjAe2QHaHa?w=169&h=180&c=7&o=5&pid=1.7",
-                categoria1: "Información personal del paciente",
-                categoria2: "Síntomas",
-                categoria3: "Factores de riesgo y antecedentes",
-                form: {
-                    name: "",
-                    paternalName: "",
-                    maternalName: "",
-                    age: "",
-                    sLump: "",
-                    sSwelling: "",
-                    sSinking: "",
-                    sSecretion: "",
-                    sDeformation: "",
-                    sPain: "",
-                    rMenstruation: "",
-                    sMenopause: "",
-                    rDenseBreast: "",
-                    rRadiotherapy: "",
-                    rMutation: "",
-                    antCancer: "",
-                    antRelative: "",
-                    antDiagnosis: ""
-                },
-                /*añadir uno por cada radio boton*/
-                selected: "",
-                options: [{
-                    text: "Si",
-                    value: 1
-                }, {
-                    text: "No",
-                    value: 0
-                }]
-            };
+  data() {
+    return {
+      titulo: "Registrar informacion del paciente",
+      imgUrl:
+        "https://th.bing.com/th/id/OIP.vHpJXWt8lBwvG9c2pjAe2QHaHa?w=169&h=180&c=7&o=5&pid=1.7",
+      categoria1: "Información personal del paciente",
+      categoria2: "Síntomas",
+      categoria3: "Factores de riesgo y antecedentes",
+      formData: "",
+      ibmResult: "",
+      form: {
+        name: "",
+        paternalName: "",
+        maternalName: "",
+        age: "",
+        sLump: "",
+        sSwelling: "",
+        sSinking: "",
+        sSecretion: "",
+        sDeformation: "",
+        sPain: "",
+        rMenstruation: "",
+        sMenopause: "",
+        rDenseBreast: "",
+        rRadiotherapy: "",
+        rMutation: "",
+        antCancer: "",
+        antRelative: "",
+        antDiagnosis: ""
+      },
+      /*añadir uno por cada radio boton*/
+      selected: "",
+      options: [
+        {
+          text: "Si",
+          value: 1
         },
-        methods: {
-            previewFiles(e) {
-                    const file = e.target.files[0];
-                    this.imgUrl = URL.createObjectURL(file);
-                },
-                savePacient(event) {
-                    event.preventDefault();
-                    const token = localStorage.getItem("sessionToken")
-                    fetch("https://test-ibm-vr.herokuapp.com/pacient", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                                /*formato de lo que se envia o tipo de peticion*/
-                                "Authorization": token
-                            },
-                            body: JSON.stringify(this.form) /*que es lo que se esta enviando*/
-                        })
-                        .then((response) => {
-                            if (response.status == 200) {
-                                alert("Se registro el paciente correctamente")
-
-                            } else {
-                                alert("Hubo un error al registrar al paciente")
-                            }
-                            console.log(response)
-                        })
-                }
+        {
+          text: "No",
+          value: 0
         }
-};
+      ]
+    };
+  },
+  methods: {
+    previewFiles(e) {
+      const file = e.target.files[0];
+      this.imgUrl = URL.createObjectURL(file);
 
+      const formDataCreate = new FormData();
+      formDataCreate.append("myImage", file);
+      this.formData = formDataCreate;
+    },
+    sendImage() {
+      const token = localStorage.getItem("sessionToken");
+      fetch("https://test-ibm-vr.herokuapp.com/analyzerImage", {
+        method: "POST",
+        headers: {
+          /*formato de lo que se envia o tipo de peticion*/
+          Accept: "application/json",
+          Authorization: token
+        },
+        body: this.formData /*que es lo que se esta enviando*/
+      })
+        .then(response => {
+          return response.json();
+        })
+        .then(jsonResponse => {
+          console.log(jsonResponse);
+          this.ibmResult = jsonResponse;
+        });
+    },
+    savePacient(event) {
+      event.preventDefault();
+      const token = localStorage.getItem("sessionToken");
+      fetch("https://test-ibm-vr.herokuapp.com/pacient", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          /*formato de lo que se envia o tipo de peticion*/
+          Authorization: token
+        },
+        body: JSON.stringify(this.form) /*que es lo que se esta enviando*/
+      }).then(response => {
+        if (response.status == 200) {
+          alert("Se registro el paciente correctamente");
+        } else {
+          alert("Hubo un error al registrar al paciente");
+        }
+        console.log(response);
+      });
+    }
+  }
+};
 </script>
