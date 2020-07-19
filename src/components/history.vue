@@ -20,10 +20,7 @@
     background-color: #EFF2F7;
 }
 
-
-/*.table{
-  border: 1px, solid
-}*/
+.boton {}
 
 </style>
 
@@ -31,10 +28,16 @@
 
 <div class="container">
     <div class="maincontainer">
-        <p>
-            <h2>{{titulo}}</h2>
-            <router-link :to="{ name: 'Pacient'}" class="btn btn-danger">Historial</router-link>
-        </p>
+        <div class="">
+            <b-row>
+                <b-col md="8">
+                    <h2>{{titulo}}</h2>
+                </b-col>
+                <b-col md="4">
+                    <router-link :to="{ name: 'Pacient'}" class="btn pill btn-danger boton">Registro de pacientes</router-link>
+                </b-col>
+            </b-row>
+        </div>
         <!--posible tabla 2-->
         <div class="container">
             <div class="row">

@@ -73,11 +73,14 @@
 
     <div class="maincontainer">
         <!--primer formulario-->
-        <p>
-            <h2>{{titulo}}</h2>
-            <router-link :to="{ name: 'History'}" class="btn btn-danger">Historial</router-link>
-
-        </p>
+        <b-row>
+            <b-col>
+                <h2>{{titulo}}</h2>
+            </b-col>
+            <b-col>
+                <router-link :to="{ name: 'History'}" class="btn btn-danger">Historial</router-link>
+            </b-col>
+        </b-row>
         <b-form @submit="savePacient">
             <div class="box1">
                 <b-container fluid>
