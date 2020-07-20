@@ -2,7 +2,7 @@ applications:
  - name: CancerVrAppFront
    random-route: true
    buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
-   memory: 156M
+   memory: 90M
    path: ./dist
    env:
     FORCE_HTTPS: true
