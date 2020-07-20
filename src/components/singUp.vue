@@ -50,21 +50,21 @@
                 <b-form-input id="input-1" v-model="form.name" type="text" required placeholder="Nombre"></b-form-input>
             </b-form-group>
 
-            <b-form-group id="input-group-1" label="Apellido paterno:" label-for="input-1">
-                <b-form-input id="input-1" v-model="form.paternalName" type="text"required placeholder="Apellido paterno"></b-form-input>
+            <b-form-group id="input-group-1" label="Apellido Paterno:" label-for="input-1">
+                <b-form-input id="input-1" v-model="form.paternalName" type="text"required placeholder="Apellido Paterno"></b-form-input>
             </b-form-group>
 
-            <b-form-group id="input-group-1" label="Apellido materno:" label-for="input-1">
-                <b-form-input id="input-1" v-model="form.maternalName" type="text" required placeholder="Apellido materno"></b-form-input>
+            <b-form-group id="input-group-1" label="Apellido Materno:" label-for="input-1">
+                <b-form-input id="input-1" v-model="form.maternalName" type="text" required placeholder="Apellido Materno"></b-form-input>
             </b-form-group>
 
             <!-- como es una cedula? -->
-            <b-form-group id="input-group-1" label="Cedula:" label-for="input-1">
-                <b-form-input id="input-1" v-model="form.professionalLicense" type="text" required placeholder="Cedula"></b-form-input>
+            <b-form-group id="input-group-1" label="Cédula:" label-for="input-1">
+                <b-form-input id="input-1" v-model="form.professionalLicense" type="text" required placeholder="Cédula"></b-form-input>
             </b-form-group>
 
-            <b-form-group id="input-group-1" label="Correo electronico:" label-for="input-1">
-                <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Correo electronico"></b-form-input>
+            <b-form-group id="input-group-1" label="Correo electrónico:" label-for="input-1">
+                <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Correo electrónico"></b-form-input>
             </b-form-group>
 
             <b-form-group id="input-group-2" label="Contraseña:" label-for="input-2">
@@ -72,11 +72,11 @@
             </b-form-group>
 
 
-            <b-button block type="submit" variant="primary" class="boton">Registrate</b-button>
+            <b-button block type="submit" variant="primary" class="boton">Regístrate</b-button>
 
             <p>¿Ya tienes cuenta? da click
                 <router-link :to="{ name: 'SingIn'}">
-                    Aqui
+                    Aquí
                 </router-link>
             </p>
 

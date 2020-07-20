@@ -46,7 +46,7 @@
             <b-col cols="7" class="col1">
                 <b-form @submit="login" class="formulario">
                     <h1>{{titulo}}</h1>
-                    <b-form-group id="input-group-1" label="Correo electronico:" label-for="input-1">
+                    <b-form-group id="input-group-1" label="Correo electrónico:" label-for="input-1">
                         <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Ingresa tu e-mail"></b-form-input>
                     </b-form-group>
 

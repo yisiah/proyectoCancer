@@ -72,10 +72,10 @@
     <div class="maincontainer">
         <!--primer formulario-->
         <b-row>
-            <b-col>
+            <b-col md="8">
                 <h2>{{titulo}}</h2>
             </b-col>
-            <b-col>
+            <b-col md="4">
                 <router-link :to="{ name: 'History'}" class="btn btn-danger">Historial</router-link>
             </b-col>
         </b-row>
@@ -90,12 +90,12 @@
                             </b-form-group>
                         </b-col>
                         <b-col md="4">
-                            <b-form-group id="input-group-1" label="Apellido paterno:" label-for="input-1">
+                            <b-form-group id="input-group-1" label="Apellido Paterno:" label-for="input-1">
                                 <b-form-input id="input-1" v-model="form.paternalName" type="text" required placeholder="Apellido paterno"></b-form-input>
                             </b-form-group>
                         </b-col>
                         <b-col md="4">
-                            <b-form-group id="input-group-1" label="Apellido materno:" label-for="input-1">
+                            <b-form-group id="input-group-1" label="Apellido Materno:" label-for="input-1">
                                 <b-form-input id="input-1" v-model="form.maternalName" type="text" required placeholder="Apellido materno"></b-form-input>
                             </b-form-group>
                         </b-col>
@@ -122,7 +122,7 @@
                             </b-form-group>
                         </b-col>
                         <b-col md="4">
-                            <b-form-group label="¿Presenta hinchazon en los senos?">
+                            <b-form-group label="¿Presenta hinchazón en los senos?">
                                 <b-form-radio-group id="radio-group-2" v-model="form.sSwelling" :options="options" name="sintoma2"></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -139,7 +139,7 @@
                             </b-form-group>
                         </b-col>
                         <b-col md="4">
-                            <b-form-group label="¿Presenta deformacion en los senos?">
+                            <b-form-group label="¿Presenta deformación en los senos?">
                                 <b-form-radio-group id="radio-group-5" v-model="form.sDeformation" :options="options" name="sintoma5"></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -162,7 +162,7 @@
                             </b-form-group>
                         </b-col>
                         <b-col md="6">
-                            <b-form-group label="¿Presento sintomas de menopausia despues de los 55 años?">
+                            <b-form-group label="¿Presentó síntomas de menopausia después de los 55 años?">
                                 <b-form-radio-group id="radio-group-8" v-model="form.sMenopause" :options="options" name="factor2"></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -193,7 +193,7 @@
                     </b-row>
                     <b-row>
                         <b-col md="6">
-                            <b-form-group label="¿El cancer fue diagnosticado antes de los 50 años?">
+                            <b-form-group label="¿El cáncer fue diagnosticado antes de los 50 años?">
                                 <b-form-radio-group id="radio-group-13" v-model="form.antDiagnosis" :options="options" name="factor7"></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -238,7 +238,7 @@
 export default {
   data() {
     return {
-      titulo: "Registrar informacion del paciente",
+      titulo: "Registrar información del paciente",
       imgUrl:
         "https://th.bing.com/th/id/OIP.vHpJXWt8lBwvG9c2pjAe2QHaHa?w=169&h=180&c=7&o=5&pid=1.7",
       categoria1: "Información personal del paciente",

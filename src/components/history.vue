@@ -34,7 +34,7 @@
                     <h2>{{titulo}}</h2>
                 </b-col>
                 <b-col md="4">
-                    <router-link :to="{ name: 'Pacient'}" class="btn pill btn-danger boton">Registro de pacientes</router-link>
+                    <router-link :to="{ name: 'Pacient'}" class="btn pill btn-danger boton">Registro de Pacientes</router-link>
                 </b-col>
             </b-row>
         </div>
@@ -46,8 +46,8 @@
                         <tr class="cabezal">
                             <th>id</th>
                             <th>Nombre</th>
-                            <th>Apellido paterno</th>
-                            <th>Apellido materno</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
                             <th>Edad</th>
                             <th>Resultado VR</th>
                         </tr>
@@ -76,7 +76,7 @@ export default {
         },
         data() {
             return {
-                titulo: "Historial de pacientes",
+                titulo: "Historial de Pacientes",
                 pacients: []
 
             }
