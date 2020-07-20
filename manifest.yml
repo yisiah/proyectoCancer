@@ -1,6 +1,6 @@
 applications:
  - name: CancerVrAppFront
-   random-route: true
+   random-route: false
    buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
    memory: 90M
    path: ./dist
