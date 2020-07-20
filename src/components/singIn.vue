@@ -87,7 +87,7 @@ export default {
         methods: {
             login(event) {
                 event.preventDefault() /*evita recargar la pagina*/
-                fetch('https://test-ibm-vr.herokuapp.com/login', {
+                fetch('https://vr-cancer-api.mybluemix.net/login', {
                         method: 'POST',
                         headers: {
                             "Content-Type": "application/json" /*formato de lo que se envia o tipo de peticion*/

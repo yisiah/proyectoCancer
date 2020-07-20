@@ -107,7 +107,7 @@ export default {
     methods: {
       register(event){
         event.preventDefault()
-        fetch('https://test-ibm-vr.herokuapp.com/register',{
+        fetch('https://vr-cancer-api.mybluemix.net/register',{
           method: 'POST',
           headers: {
               "Content-Type": "application/json" /*formato de lo que se envia o tipo de peticion*/

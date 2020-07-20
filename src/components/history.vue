@@ -85,7 +85,7 @@ export default {
         methods: {
             getPatient() {
                 const token = localStorage.getItem("sessionToken")
-                fetch('https://test-ibm-vr.herokuapp.com/pacient', {
+                fetch('https://vr-cancer-api.mybluemix.net/pacient', {
                         method: 'GET',
                         headers: {
                             "Authorization": token,

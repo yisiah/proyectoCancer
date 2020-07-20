@@ -291,7 +291,7 @@ export default {
     },
     sendImage() {
       const token = localStorage.getItem("sessionToken");
-      fetch("https://test-ibm-vr.herokuapp.com/analyzerImage", {
+      fetch("https://vr-cancer-api.mybluemix.net/analyzerImage", {
         method: "POST",
         headers: {
           /*formato de lo que se envia o tipo de peticion*/
@@ -311,7 +311,7 @@ export default {
     savePacient(event) {
       event.preventDefault();
       const token = localStorage.getItem("sessionToken");
-      fetch("https://test-ibm-vr.herokuapp.com/pacient", {
+      fetch("https://vr-cancer-api.mybluemix.net/pacient", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
