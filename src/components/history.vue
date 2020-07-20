@@ -49,7 +49,8 @@
                             <th>Apellido Paterno</th>
                             <th>Apellido Materno</th>
                             <th>Edad</th>
-                            <th>Resultado VR</th>
+                            <th>Resultado VR Max</th>
+                            <th>Resultado VR Mid</th>
                         </tr>
                         <tr v-for="pacient in pacients">
                             <td>{{pacient.idPacient}}</td>
@@ -57,7 +58,8 @@
                             <td>{{pacient.paternalName}}</td>
                             <td>{{pacient.maternalName}}</td>
                             <td>{{pacient.age}}</td>
-                            <td>{{}}</td>
+                            <td>{{pacient.resMax}}</td>
+                            <td>{{pacient.resMid}}</td>
                         </tr>
                     </table>
                 </div>
