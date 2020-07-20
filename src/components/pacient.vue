@@ -169,6 +169,7 @@
                     v-model="form.sLump"
                     :options="options"
                     name="sintoma1"
+                    required
                   ></b-form-radio-group>
                 </b-form-group>
               </b-col>
@@ -178,6 +179,7 @@
                     id="radio-group-2"
                     v-model="form.sSwelling"
                     :options="options"
+                    required
                     name="sintoma2"
                   ></b-form-radio-group>
                 </b-form-group>
@@ -190,6 +192,7 @@
                     id="radio-group-3"
                     v-model="form.sSinking"
                     :options="options"
+                    required
                     name="sintoma3"
                   ></b-form-radio-group>
                 </b-form-group>
@@ -202,6 +205,7 @@
                     id="radio-group-4"
                     v-model="form.sSecretion"
                     :options="options"
+                    required
                     name="sintoma4"
                   ></b-form-radio-group>
                 </b-form-group>
@@ -212,6 +216,7 @@
                     id="radio-group-5"
                     v-model="form.sDeformation"
                     :options="options"
+                    required
                     name="sintoma5"
                   ></b-form-radio-group>
                 </b-form-group>
@@ -222,6 +227,7 @@
                     id="radio-group-6"
                     v-model="form.sPain"
                     :options="options"
+                    required
                     name="sintoma6"
                   ></b-form-radio-group>
                 </b-form-group>
@@ -242,6 +248,7 @@
                     id="radio-group-7"
                     v-model="form.rMenstruation"
                     :options="options"
+                    required
                     name="factor1"
                   ></b-form-radio-group>
                 </b-form-group>
@@ -254,6 +261,7 @@
                     id="radio-group-8"
                     v-model="form.sMenopause"
                     :options="options"
+                    required
                     name="factor2"
                   ></b-form-radio-group>
                 </b-form-group>
@@ -266,6 +274,7 @@
                     id="radio-group-9"
                     v-model="form.rDenseBreast"
                     :options="options"
+                    required
                     name="factor3"
                   ></b-form-radio-group>
                 </b-form-group>
@@ -276,6 +285,7 @@
                     id="radio-group-10"
                     v-model="form.rRadiotherapy"
                     :options="options"
+                    required
                     name="factor4"
                   ></b-form-radio-group>
                 </b-form-group>
@@ -290,6 +300,7 @@
                     id="radio-group-11"
                     v-model="form.rMutation"
                     :options="options"
+                    required
                     name="factor5"
                   ></b-form-radio-group>
                 </b-form-group>
@@ -300,6 +311,7 @@
                     id="radio-group-12"
                     v-model="form.antCancer"
                     :options="options"
+                    required
                     name="factor6"
                   ></b-form-radio-group>
                 </b-form-group>
@@ -314,6 +326,7 @@
                     id="radio-group-13"
                     v-model="form.antDiagnosis"
                     :options="options"
+                    required
                     name="factor7"
                   ></b-form-radio-group>
                 </b-form-group>
@@ -326,6 +339,7 @@
                     id="radio-group-14"
                     v-model="form.antRelative"
                     :options="options"
+                    required
                     name="factor8"
                   ></b-form-radio-group>
                 </b-form-group>
