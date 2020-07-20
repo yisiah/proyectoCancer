@@ -81,6 +81,9 @@
           <router-link :to="{ name: 'History' }" class="btn btn-danger"
             >Historial</router-link
           >
+          <b-button @click="closeSession" variant="outline-warning"
+            >Cerrar sesión</b-button
+          >
         </b-col>
       </b-row>
       <b-form @submit="savePacient">
@@ -367,8 +370,6 @@
                   <td>{{ result.score }}</td>
                 </tr>
               </table>
-              {{this.resMax}}
-              {{this.resMid}}
             </div>
           </div>
         </div>
@@ -380,7 +381,15 @@
 </template>
 
 <script>
+import router from "./../router";
+
 export default {
+  created() {
+    if (localStorage.getItem("sessionToken") == null) {
+      alert("No tiene permisos para entrar aquí");
+      router.replace("singin");
+    }
+  },
   data() {
     return {
       titulo: "Registrar información del paciente",
@@ -435,6 +444,11 @@ export default {
       const formDataCreate = new FormData();
       formDataCreate.append("myImage", file);
       this.formData = formDataCreate;
+    },
+
+    closeSession() {
+      localStorage.clear();
+      router.replace("singin");
     },
     sendImage() {
       const token = localStorage.getItem("sessionToken");
